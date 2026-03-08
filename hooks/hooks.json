@@ -1,0 +1,14 @@
+{
+  "description": "Guardian — self-learning convention enforcer",
+  "hooks": {
+    "SessionStart": [{"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/run_hook.sh\" session_start.py", "timeout": 15}]}],
+    "PostToolUse": [
+      {"matcher": "Edit|Write", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/run_hook.sh\" collect_edit.py", "async": true}]},
+      {"matcher": "Bash", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/run_hook.sh\" collect_bash.py", "async": true}]}
+    ],
+    "PreToolUse": [
+      {"matcher": "Edit|Write", "hooks": [{"type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/run_hook.sh\" enforce.py", "timeout": 5}]}
+    ],
+    "Stop": [{"hooks": [{"type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/run_hook.sh\" analyze.py", "async": true}]}]
+  }
+}

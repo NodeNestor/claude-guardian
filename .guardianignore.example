@@ -1,0 +1,22 @@
+# .guardianignore — files/patterns to skip enforcement on
+# Uses glob patterns, similar to .gitignore
+#
+# Place this file as .guardianignore in your project root.
+
+# Generated files
+dist/**
+build/**
+*.generated.*
+*.min.js
+
+# Config files (often have unusual naming)
+*.config.js
+*.config.ts
+.env*
+
+# Migrations (naming dictated by framework)
+migrations/**
+**/migrations/**
+
+# Vendor / third-party
+vendor/**

@@ -1,0 +1,7 @@
+{
+  "name": "claude-guardian",
+  "version": "1.0.0",
+  "description": "Self-learning convention enforcer — watches your project patterns, auto-generates rules, prevents architectural drift.",
+  "author": { "name": "NodeNestor" },
+  "homepage": "https://github.com/NodeNestor/claude-guardian"
+}
